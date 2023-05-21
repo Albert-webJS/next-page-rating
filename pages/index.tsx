@@ -1,5 +1,4 @@
-import { Caption } from '../components/Caption/Caption';
-import { Button } from "../components/Button/Button";
+import { Caption, Button } from '../components';
 
 export default function Home(): JSX.Element {
 	return (
