@@ -1,5 +1,9 @@
+import { Caption } from '../components/Caption/Caption';
+
 export default function Home(): JSX.Element {
-  return (
-		<h1>Initial project</h1>
-  );
+	return (
+		<>
+			<Caption tag="h1">Heading</Caption>
+		</>
+	);
 }
