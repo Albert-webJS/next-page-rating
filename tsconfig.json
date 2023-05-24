@@ -21,10 +21,11 @@
     "jsx": "preserve"
   },
   "include": [
-    "next-env.d.ts",
+    "next-env-custom.d.ts",
     "**/*.ts",
+	"images.d.ts",
     "**/*.tsx"
-  ],
+, "components/Caption/Сaption.spec.jsx", "components/Caption/Сaption.spec.js", "jest.config.js"  ],
   "exclude": [
     "node_modules"
   ]
