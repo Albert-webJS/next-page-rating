@@ -1,5 +1,4 @@
-import React from 'react';
-import { ReactNode } from 'react';
+import { createElement, ReactNode } from 'react';
 import styles from "./Caption.module.css";
 
 type CaptionType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -9,8 +8,8 @@ interface CaptionProps {
 	children: ReactNode
 }
 
-export const Caption = ({ tag, children }: CaptionProps) => {
+export const Caption = ({ tag, children }: CaptionProps): JSX.Element => {
 	const className = styles[tag] || null;
 
-	return React.createElement(tag, { className }, children);
+	return createElement(tag, { className }, children);
 };

@@ -7,7 +7,7 @@ interface ButtonProps {
 	children: ReactNode;
 }
 
-export const Button = ({ appearance, children }: ButtonProps) => {
+export const Button = ({ appearance, children }: ButtonProps): JSX.Element => {
 	const buttonClasses = cn(styles.button, {
 		[styles.primary]: appearance == 'primary',
 		[styles.ghost]: appearance == "ghost",
