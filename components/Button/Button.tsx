@@ -3,17 +3,36 @@ import styles from "./Button.module.css";
 import ArrowIcon from '../../assets/svg/arrow-btn.svg';
 import cn from 'classnames';
 
+type Appearance = 'primary' | 'ghost';
+type ArrowDirection = 'right' | 'down' | 'none';
+
 interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-	appearance: 'primary' | 'ghost';
+	appearance: Appearance;
+	arrow?: ArrowDirection;
 	children: ReactNode;
-	arrow?: 'right' | 'down' | 'none';
 }
 
-export const Button = ({ appearance, arrow = 'none', children, className, ...props }: ButtonProps): JSX.Element => {
+export const Button = (
+	{ appearance, arrow = 'none', children, className, ...props }: ButtonProps
+): JSX.Element => {
+
 	const buttonClasses = cn(styles.button, className, {
 		[styles.primary]: appearance == 'primary',
 		[styles.ghost]: appearance == "ghost",
 	});
+
+	const renderArrow = () => {
+		if (arrow === "none") return null;
+
+		const arrowClasses = cn(styles.arrow, {
+			[styles.down]: arrow === 'down',
+		});
+		return (
+			<span className={arrowClasses}>
+				<ArrowIcon />
+			</span>
+		);
+	};
 
 	return (
 		<button
@@ -21,11 +40,7 @@ export const Button = ({ appearance, arrow = 'none', children, className, ...pro
 			className={buttonClasses}
 		>
 			{children}
-			{arrow !== 'none' && <span className={cn(styles.arrow, {
-				[styles.down]: arrow === 'down',
-			})}>
-				<ArrowIcon />
-			</span>}
+			{renderArrow()}
 		</button >
 	);
 };

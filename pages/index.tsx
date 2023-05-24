@@ -4,7 +4,7 @@ export default function Home(): JSX.Element {
 	return (
 		<>
 			<Caption tag='h1'>Caption component</Caption>
-			<Button appearance='primary'>Button component</Button>
+			<Button arrow='down' appearance='ghost'>Button component</Button>
 		</>
 	);
 }
