@@ -1,3 +1,7 @@
+.lineRating {
+	cursor: pointer;
+}
+
 .filled {
 	fill: var(--color-primary);
 }

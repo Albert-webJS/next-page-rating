@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Caption, Button, TextParagraph, Tag, StarRating } from '../components';
 
 export default function Home(): JSX.Element {
+	const [rating, setRating] = useState<number>(3);
 	return (
 		<>
 			<Caption tag="h1">Caption component</Caption>
@@ -12,7 +14,7 @@ export default function Home(): JSX.Element {
 				Alias amet explicabo officia reiciendis nihil?
 			</TextParagraph>
 			<Tag size='medium' color="green">Tag component</Tag>
-			<StarRating rating={3} />
+			<StarRating rating={rating} isEditable setRating={setRating} />
 		</>
 	);
 }
