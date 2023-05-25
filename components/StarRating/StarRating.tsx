@@ -11,9 +11,7 @@ interface StarRatingProps {
 
 const initialCollection = new Array(5).fill(<></>);
 
-export const StarRating = (
-	{ isEditable, rating, setRating, ...props }: StarRatingProps
-): JSX.Element => {
+export const StarRating = ({ isEditable, rating, setRating, ...props }: StarRatingProps): JSX.Element => {
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(initialCollection);
 
 	useEffect(() => {
@@ -27,9 +25,12 @@ export const StarRating = (
 					className={styles.lineRating}
 					onMouseEnter={() => changeDisplay(index + 1)}
 					onMouseLeave={() => changeDisplay(rating)}
-					onClick={() => handleClick(index + 1)}
+					onClick={() => handleRatingElement(index + 1)}
 					tabIndex={isEditable ? 0 : -1}
-					onKeyDown={(event: KeyboardEvent<HTMLSpanElement>) => isEditable && handleSpace(index + 1, event)}
+					onKeyDown={
+						(event: KeyboardEvent<HTMLSpanElement>) =>
+							isEditable && handleSpace(index + 1, event)
+					}
 				>
 					<StarIcon
 						className={cn(styles.star, {
@@ -48,7 +49,7 @@ export const StarRating = (
 		constructRating(index);
 	};
 
-	const handleClick = (index: number) => {
+	const handleRatingElement = (index: number) => {
 		if (!isEditable || !setRating) return;
 
 		setRating(index);
