@@ -13,14 +13,17 @@ interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTM
 
 }
 
-export const Tag = ({ size, color = 'ghost', href, children, className, ...props }: TagProps) => {
+export const Tag = (
+	{ size, color = 'ghost', href, children, className, ...props }: TagProps
+) => {
+
 	const TagClasses = cn(styles.tag, className, {
 		[styles.small]: size === 'small',
 		[styles.medium]: size === 'medium',
 		[styles.ghost]: color === 'ghost',
 		[styles.red]: color === 'red',
 		[styles.gray]: color === 'gray',
-		[styles.grren]: color === 'green',
+		[styles.green]: color === 'green',
 		[styles.primary]: color === 'primary',
 	});
 

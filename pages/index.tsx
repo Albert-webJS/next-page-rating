@@ -11,7 +11,7 @@ export default function Home(): JSX.Element {
 				Veritatis fugit consectetur dolor nesciunt alias totam et.
 				Alias amet explicabo officia reiciendis nihil?
 			</TextParagraph>
-			<Tag size='medium' color='primary'>Tag component</Tag>
+			<Tag size='medium' color="green">Tag component</Tag>
 		</>
 	);
 }
