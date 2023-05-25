@@ -1,9 +1,9 @@
-import { Caption, Button, TextParagraph, Tag } from '../components';
+import { Caption, Button, TextParagraph, Tag, StarRating } from '../components';
 
 export default function Home(): JSX.Element {
 	return (
 		<>
-			<Caption tag='h1'>Caption component</Caption>
+			<Caption tag="h1">Caption component</Caption>
 			<Button arrow='down' appearance='ghost'>Button component</Button>
 			<TextParagraph size='small'>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -12,6 +12,7 @@ export default function Home(): JSX.Element {
 				Alias amet explicabo officia reiciendis nihil?
 			</TextParagraph>
 			<Tag size='medium' color="green">Tag component</Tag>
+			<StarRating rating={3} />
 		</>
 	);
 }
