@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
-import styles from "./Button.module.css";
+import styles from './Button.module.css';
 import ArrowIcon from '../../assets/svg/arrow-btn.svg';
 import cn from 'classnames';
 
@@ -18,11 +18,11 @@ export const Button = (
 
 	const buttonClasses = cn(styles.button, className, {
 		[styles.primary]: appearance == 'primary',
-		[styles.ghost]: appearance == "ghost",
+		[styles.ghost]: appearance == 'ghost',
 	});
 
 	const renderArrow = () => {
-		if (arrow === "none") return null;
+		if (arrow === 'none') return null;
 
 		const arrowClasses = cn(styles.arrow, {
 			[styles.down]: arrow === 'down',

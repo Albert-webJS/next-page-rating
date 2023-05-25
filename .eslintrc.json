@@ -14,7 +14,8 @@
 			{
 				"allowSingleExtends": true
 			}
-		]
+		],
+		"quotes": ["error", "single", { "avoidEscape": true }]
 	},
 	"extends": [
 		"eslint:recommended",

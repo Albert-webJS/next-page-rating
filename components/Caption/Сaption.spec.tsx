@@ -5,7 +5,7 @@ import { Caption } from './Caption';
 describe('Caption', () => {
 	test('renders the correct heading with children', async () => {
 		render(<Caption tag="h1">Heading</Caption>);
-		const CaptionElement = screen.getByText("Heading");
+		const CaptionElement = screen.getByText('Heading');
 		await waitFor(() => {
 			expect(CaptionElement).toBeInTheDocument();
 		});

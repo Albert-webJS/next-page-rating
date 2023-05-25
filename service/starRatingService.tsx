@@ -49,7 +49,7 @@ class StarRatingService {
 	}
 
 	private handleSpace(index: number, event: KeyboardEvent<HTMLSpanElement>) {
-		if (event.code !== "Space" || !this.setRating) return;
+		if (event.code !== 'Space' || !this.setRating) return;
 
 		this.setRating(index);
 	}

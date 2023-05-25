@@ -3,7 +3,7 @@ import styles from './Tag.module.css';
 import cn from 'classnames';
 
 type Size = 'small' | 'medium';
-type TagColor = "ghost" | "red" | "gray" | "green" | "primary";
+type TagColor = 'ghost' | 'red' | 'gray' | 'green' | 'primary';
 
 interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	size?: Size;
