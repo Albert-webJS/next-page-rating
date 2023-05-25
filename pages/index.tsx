@@ -1,11 +1,11 @@
-import { useState } from 'react';
 import { Caption, Button, TextParagraph, Tag, StarRating } from '../components';
-import { Layout } from "../layout";
+import { useState } from 'react';
+import { WithLayout } from '../hoc';
 
-export default function Home(): JSX.Element {
+function Home(): JSX.Element {
 	const [rating, setRating] = useState<number>(3);
 	return (
-		<Layout>
+		<>
 			<Caption className='props' tag="h1">Caption component</Caption>
 			<Button arrow='down' appearance='ghost'>Button component</Button>
 			<TextParagraph size='small'>
@@ -16,6 +16,9 @@ export default function Home(): JSX.Element {
 			</TextParagraph>
 			<Tag size='medium' color="green">Tag component</Tag>
 			<StarRating rating={rating} isEditable setRating={setRating} />
-		</Layout>
+		</>
 	);
 }
+
+
+export default WithLayout(Home);
