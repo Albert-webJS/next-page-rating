@@ -5,7 +5,7 @@ export default function Home(): JSX.Element {
 	const [rating, setRating] = useState<number>(3);
 	return (
 		<>
-			<Caption tag="h1">Caption component</Caption>
+			<Caption className='props' tag="h1">Caption component</Caption>
 			<Button arrow='down' appearance='ghost'>Button component</Button>
 			<TextParagraph size='small'>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit.
