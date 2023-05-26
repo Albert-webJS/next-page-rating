@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPropsResult } from 'next';
 import { useState } from 'react';
 import { WithLayout } from '../hoc';
 import axios from 'axios';
-import { MenuItem } from '../interfaces';
+import { HomeProps, MenuItem } from '../interfaces';
 
 function Home({ menu, firstCategory }: HomeProps): JSX.Element {
 	const [rating, setRating] = useState<number>(3);
@@ -42,8 +42,3 @@ export const getStaticProps: GetStaticProps<HomeProps> = async (): Promise<GetSt
 		}
 	};
 };
-
-interface HomeProps extends Record<string, unknown> {
-	menu: MenuItem[];
-	firstCategory: number
-}
