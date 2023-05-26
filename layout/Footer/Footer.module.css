@@ -20,8 +20,14 @@
 	color: var(--color-gray-light);
 }
 
-@media (width <= 765px) {
+@media (width <= 570px) {
 	.footer {
-		grid-template-columns: 1fr;
+		grid-template-columns: auto;
+
+		justify-content: center;
+	}
+
+	.footer a {
+		justify-self: center;
 	}
 }
