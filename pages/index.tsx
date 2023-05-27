@@ -20,9 +20,6 @@ function Home({ menu, firstCategory }: HomeProps & AppContextProps): JSX.Element
 			</TextParagraph>
 			<Tag size='medium' color="green">Tag component</Tag>
 			<StarRating rating={rating} isEditable setRating={setRating} />
-			<ul>
-				{menu.map(element => (<li key={element._id.secondCategory}>{element._id.secondCategory}</li>))}
-			</ul>
 		</>
 	);
 }
