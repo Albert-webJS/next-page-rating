@@ -5,7 +5,7 @@ import { Layout } from '../layout';
 export const WithLayout = <T extends Record<string, unknown> & AppContextProps>(Component: FunctionComponent<T>) => {
 	return function WithLayoutComponent(props: T): JSX.Element {
 		return (
-			<AppContextProvider menu={props.menu} firstCategoty={props.firstCategoty}>
+			<AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
 				<Layout>
 					<Component {...props} />
 				</Layout>

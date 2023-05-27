@@ -3,14 +3,14 @@ import { MenuItem, TopLevelCategory } from '../interfaces';
 
 export interface AppContextProps {
 	menu: MenuItem[];
-	firstCategoty: TopLevelCategory;
+	firstCategory: TopLevelCategory;
 	setMenu?: (newMenu: MenuItem[]) => void;
 }
 
-const AppContext = createContext<AppContextProps | null>(null);
+export const AppContext = createContext<AppContextProps>({ menu: [], firstCategory: TopLevelCategory.Courses });
 
 export const AppContextProvider =
-	({ menu, firstCategoty, children }: PropsWithChildren<AppContextProps>): JSX.Element => {
+	({ menu, firstCategory, children }: PropsWithChildren<AppContextProps>): JSX.Element => {
 
 		const [menuState, setMenuState] = useState<MenuItem[]>(menu);
 		const setMenu = (newMenu: MenuItem[]) => {
@@ -18,7 +18,7 @@ export const AppContextProvider =
 		};
 
 		return (
-			<AppContext.Provider value={{ menu: menuState, firstCategoty, setMenu }}>
+			<AppContext.Provider value={{ menu: menuState, firstCategory, setMenu }}>
 				{children}
 			</AppContext.Provider>
 		);
