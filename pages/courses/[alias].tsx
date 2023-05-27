@@ -4,10 +4,19 @@ import { WithLayout } from '../../hoc';
 import axios from 'axios';
 import { MenuItem, ProductModel, TopPageModel } from '../../interfaces';
 import { ParsedUrlQuery } from 'querystring';
+import { AppContextProps } from '../../context';
 
 const firstCategory = 0;
 
-function Course({ menu, page, products }: CourseProps): JSX.Element {
+interface CourseProps extends Record<string, unknown> {
+	menu: MenuItem[];
+	firstCategory: number;
+	page: TopPageModel;
+	products: ProductModel[];
+}
+
+
+function Course({ menu, page, products }: CourseProps & AppContextProps): JSX.Element {
 	return (
 		<>
 			{products && products.length}
@@ -30,12 +39,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	};
 };
 
-interface CourseProps extends Record<string, unknown> {
-	menu: MenuItem[];
-	firstCategory: number;
-	page: TopPageModel;
-	products: ProductModel[];
-}
 
 export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>): Promise<GetStaticPropsResult<CourseProps>> => {
 	if (!params) {

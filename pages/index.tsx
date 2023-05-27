@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { WithLayout } from '../hoc';
 import axios from 'axios';
 import { HomeProps, MenuItem } from '../interfaces';
+import { AppContextProps } from '../context';
 
-function Home({ menu, firstCategory }: HomeProps): JSX.Element {
+function Home({ menu, firstCategory }: HomeProps & AppContextProps): JSX.Element {
 	const [rating, setRating] = useState<number>(3);
 	return (
 		<>
