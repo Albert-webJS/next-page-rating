@@ -1,3 +1,5 @@
+import { TopLevelCategory } from '.';
+
 export type MenuItem = CategoryItem;
 
 export interface CategoryItem {
@@ -12,4 +14,11 @@ export interface PageItem {
   title: string
   _id: string
   category: string
+}
+
+export interface FirstLevelMenu {
+	route: string,
+	name: string,
+	icon: JSX.Element
+	id: TopLevelCategory
 }
