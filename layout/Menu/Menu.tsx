@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { AppContext, AppContextProps } from '../../context';
-import { FirstLevelMenu, TopLevelCategory } from '../../interfaces';
+import { FirstLevelMenu, TopLevelCategory, PageItem } from '../../interfaces';
 import CoursesIcon from '../../assets/svg/courses-icon.svg';
 import ServiceIcon from '../../assets/svg/service-icon.svg';
 import BookIcon from '../../assets/svg/books-icon.svg';
@@ -20,31 +20,61 @@ export const Menu = (): JSX.Element => {
 
 	const buildFirstLevelMenu = (): JSX.Element => {
 		return (
-			<>
-				{FIRST_LEVEL_MENU.map(menu => {
-					<div key={menu.route}>
+			<ul className={styles.firstLevelList}>
+				{FIRST_LEVEL_MENU.map(menu => (
+					<li key={menu.route}>
 						<a href={`/${menu.route}`}>
 							<div className={cn(styles.level_1, {
 								[styles.active]: menu.id === firstCategory
 							})}>
-								{menu.icon}
 								<span>{menu.icon}</span>
 							</div>
 						</a>
-						{menu.id === firstCategory && buildSecondLevelMenu()}
-					</div>;
-				})}
-			</>
+						{menu.id === firstCategory && buildSecondLevelMenu(menu)}
+					</li>
+				))}
+			</ul>
 		);
 	};
 
-	const buildSecondLevelMenu = (): JSX.Element => {
-		return <></>;
+
+	const buildSecondLevelMenu = (menuItem: FirstLevelMenu): JSX.Element => {
+		return (
+			<ul className={styles.secondBlock}>
+				{menu.map(m => (
+					<li key={m._id.secondCategory}>
+						<div className={styles.level_2}>{m._id.secondCategory}</div>
+						<div className={cn(styles.secondLevelBlock, {
+							[styles.opened]: m.isOpened
+						})}>
+							{buildThirdLevel(m.pages, menuItem.route)}
+						</div>
+					</li>
+				))}
+			</ul>
+		);
 	};
+
+
+	const buildThirdLevel = (pages: PageItem[], route: string) => {
+		return (
+			pages.map(page => (
+				<a
+					className={cn(styles.level_3, {
+						[styles.thirdLevelActive]: true
+					})}
+					href={`/${route}/${page.alias}`}
+				>
+					{page.category}
+				</a>
+			))
+		);
+	};
+
 
 	return (
 		<>
-
+			{buildFirstLevelMenu()}
 		</>
 	);
 };

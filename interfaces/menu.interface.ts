@@ -4,21 +4,22 @@ export type MenuItem = CategoryItem;
 
 export interface CategoryItem {
   _id: {
-	secondCategory: string
+	secondCategory: string;
   }
-  pages: PageItem[]
+  isOpened?: boolean;
+  pages: PageItem[];
 }
 
 export interface PageItem {
-  alias: string
-  title: string
-  _id: string
-  category: string
+  alias: string;
+  title: string;
+  _id: string;
+  category: string;
 }
 
 export interface FirstLevelMenu {
-	route: string,
-	name: string,
-	icon: JSX.Element
-	id: TopLevelCategory
+	route: string;
+	name: string;
+	icon: JSX.Element;
+	id: TopLevelCategory;
 }
