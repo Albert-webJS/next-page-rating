@@ -17,14 +17,14 @@
 	list-style: none;
 }
 
-.active,
-.level_1:hover {
-	color: var(--primary);
+.level_1:hover,
+.active {
+	color: var(--color-primary);
 }
 
 .active svg,
 .level_1:hover svg {
-	fill: var(--primary);
+	fill: var(--color-primary);
 }
 
 .level_2 {
@@ -34,7 +34,7 @@
 	cursor: pointer;
 	text-transform: uppercase;
 
-	color: var(--gray-dark);
+	color: var(--color-dark);
 	border: none;
 
 	background: none;
@@ -55,11 +55,16 @@
 }
 
 .secondLevelBlock {
+	display: none;
 	overflow: hidden;
 
 	padding: 0;
 
 	list-style: none;
+}
+
+.secondLevelBlock.opened {
+	display: block;
 }
 
 .level_3 {
@@ -69,14 +74,15 @@
 
 	cursor: pointer;
 
-	color: var(--gray-dark);
+	color: var(--color-dark);
 	outline-offset: -1px;
 
 	font-size: 14px;
 	font-weight: 500;
 }
 
-.thirdLevelActive,
-.level_3:hover {
-	color: var(--primary);
+
+.level_3:hover,
+.thirdLevelActive {
+	color: var(--color-primary);
 }
